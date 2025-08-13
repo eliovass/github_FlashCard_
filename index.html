@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards Simples de HTML, CSS y JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(180deg, #1e3a8a, #6b7280);
+            color: #333;
+        }
+
+        .page-title {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            color: #ffffff;
+            margin: 20px 0;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 500px;
+            padding: clamp(10px, 5vw, 20px);
+            box-sizing: border-box;
+        }
+
+        .flashcard {
+            background: #ffffff;
+            border: 2px solid #1e40af;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .flashcard-front, .flashcard-back {
+            padding: clamp(10px, 3vw, 15px);
+            text-align: center;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .flashcard-front {
+            background: #ffffff;
+        }
+
+        .flashcard-back {
+            background: #e0e7ff;
+            transform: translateY(100%);
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .flashcard.active .flashcard-front {
+            transform: translateY(-100%);
+        }
+
+        .flashcard.active .flashcard-back {
+            transform: translateY(0);
+        }
+
+        .category {
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            color: #1e40af;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin: 0 0 8px;
+            color: #333;
+        }
+
+        p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 600px) {
+            .flashcard {
+                max-width: 90%;
+                height: 180px;
+            }
+
+            .page-title {
+                margin: 15px 0;
+            }
+
+            .container {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .flashcard {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">Conceptos de HTML, CSS y JavaScript</h1>
+    <div class="container">
+        <!-- HTML Flashcards -->
+        <div class="flashcard" onclick="this.classList.toggle('active')">
+            <div class="flashcard-front">
+                <span class="category">HTML</span>
+                <h2>¿Qué es una etiqueta HTML?</h2>
+            </div>
+            <div class="flashcard-back">
+                <p>Una etiqueta HTML define la estructura y contenido de una página web. Ejemplo: <code>&lt;p&gt;Texto&lt;/p&gt;</code> crea un párrafo.</p>
+            </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('active')">
+            <div class="flashcard-front">
+                <span class="category">HTML</span>
+                <h2>Atributo HTML</h2>
+            </div>
+            <div class="flashcard-back">
+                <p>Los atributos añaden información a las etiquetas. Ejemplo: <code>&lt;img src="imagen.jpg" alt="Descripción"&gt;</code>.</p>
+            </div>
+        </div>
+
+        <!-- CSS Flashcards -->
+        <div class="flashcard" onclick="this.classList.toggle('active')">
+            <div class="flashcard-front">
+                <span class="category">CSS</span>
+                <h2>¿Qué es CSS?</h2>
+            </div>
+            <div class="flashcard-back">
+                <p>CSS estiliza páginas web, controlando diseño y apariencia. Ejemplo: <code>color: blue;</code></p>
+            </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('active')">
+            <div class="flashcard-front">
+                <span class="category">CSS</span>
+                <h2>Selector CSS</h2>
+            </div>
+            <div class="flashcard-back">
+                <p>Un selector CSS apunta a elementos HTML para aplicar estilos. Ejemplo: <code>p { font-size: 16px; }</code></p>
+            </div>
+        </div>
+
+        <!-- JavaScript Flashcards -->
+        <div class="flashcard" onclick="this.classList.toggle('active')">
+            <div class="flashcard-front">
+                <span class="category">JavaScript</span>
+                <h2>¿Qué es JavaScript?</h2>
+            </div>
+            <div class="flashcard-back">
+                <p>JavaScript agrega interactividad a las páginas web. Ejemplo: <code>alert("¡Hola!");</code></p>
+            </div>
+        </div>
+
+        <div class="flashcard" onclick="this.classList.toggle('active')">
+            <div class="flashcard-front">
+                <span class="category">JavaScript</span>
+                <h2>Función en JavaScript</h2>
+            </div>
+            <div class="flashcard-back">
+                <p>Una función es un bloque de código reutilizable. Ejemplo: <code>function suma(a, b) { return a + b; }</code></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // No se requiere JavaScript adicional para la funcionalidad de las flashcards
+    </script>
+</body>
+</html>
